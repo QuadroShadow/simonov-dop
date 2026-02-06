@@ -1,0 +1,19 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: simonov-dop
+    restart: always
+    volumes:
+      - ./html:/usr/share/nginx/html
+    networks:
+      - coolify
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.simonov.rule=Host(`simonovkonstantin.com`)"
+      - "traefik.http.routers.simonov.entrypoints=websecure"
+      - "traefik.http.routers.simonov.tls.certresolver=letsencrypt"
+      - "traefik.http.services.simonov.loadbalancer.server.port=80"
+
+networks:
+  coolify:
+    external: true

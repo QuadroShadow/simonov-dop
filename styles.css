@@ -1,0 +1,368 @@
+/*
+=====================================================
+SIMONOV DOP - COMING SOON
+Cinematic, Minimal, Professional Landing Page
+=====================================================
+
+TABLE OF CONTENTS:
+1. CSS Custom Properties (Variables)
+2. Reset & Base Styles
+3. Background Media Styles
+4. Content & Typography
+5. Animations
+6. Responsive Breakpoints
+=====================================================
+*/
+
+
+/* =====================================================
+   1. CSS CUSTOM PROPERTIES
+   ===================================================== 
+   
+   CUSTOMIZATION GUIDE:
+   - Change colors, fonts, and timing here
+   - All values cascade throughout the stylesheet
+*/
+
+:root {
+    /* ---------- COLORS ---------- */
+    /* Primary background - near black */
+    --color-bg: #0a0a0a;
+
+    /* Text colors */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.7);
+    --color-text-muted: rgba(255, 255, 255, 0.4);
+
+    /* Overlay darkness (0.4 = 40%, 0.6 = 60%) */
+    --overlay-opacity: 0.55;
+
+    /* ---------- TYPOGRAPHY ---------- */
+    /* Headline font - cinematic serif */
+    --font-headline: 'Playfair Display', Georgia, serif;
+
+    /* Body font - clean sans-serif */
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Font sizes (mobile-first, scaled with clamp) */
+    --size-headline: clamp(2.5rem, 8vw, 6rem);
+    --size-name: clamp(1.25rem, 3vw, 2rem);
+    --size-subtitle: clamp(0.75rem, 1.5vw, 0.875rem);
+
+    /* Letter spacing */
+    --tracking-headline: 0.02em;
+    --tracking-name: 0.25em;
+    --tracking-subtitle: 0.35em;
+
+    /* ---------- SPACING ---------- */
+    --space-safe-area: env(safe-area-inset-bottom, 2rem);
+
+    /* ---------- ANIMATIONS ---------- */
+    --duration-fade: 1.5s;
+    --duration-stagger: 0.3s;
+    --easing-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+
+/* =====================================================
+   2. RESET & BASE STYLES
+   ===================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    min-height: 100dvh;
+    /* Dynamic viewport height for mobile */
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* =====================================================
+   3. BACKGROUND MEDIA STYLES
+   ===================================================== 
+   
+   TO CHANGE BACKGROUND IMAGE:
+   Edit the URL in .bg-image background-image property
+*/
+
+.background-container {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* ---------- VIDEO BACKGROUND ---------- */
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* ---------- IMAGE BACKGROUND ---------- 
+   
+   CHANGE BACKGROUND IMAGE HERE:
+   Replace the URL with your image path
+   Recommended: 1920x1080 or higher resolution
+   Formats: JPG, WebP, or AVIF for best performance
+*/
+.bg-image {
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* ---------- DARK OVERLAY ---------- 
+   
+   Adjust --overlay-opacity in :root to change darkness
+   Current: 0.55 (55% dark)
+*/
+.bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, calc(var(--overlay-opacity) - 0.1)) 0%,
+            rgba(0, 0, 0, var(--overlay-opacity)) 50%,
+            rgba(0, 0, 0, calc(var(--overlay-opacity) + 0.1)) 100%);
+}
+
+
+/* =====================================================
+   4. CONTENT & TYPOGRAPHY
+   ===================================================== */
+
+.content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 2rem;
+    padding-bottom: calc(2rem + var(--space-safe-area));
+}
+
+.content-wrapper {
+    text-align: center;
+    max-width: 90vw;
+}
+
+/* ---------- MAIN HEADLINE ---------- */
+.headline {
+    font-family: var(--font-headline);
+    font-size: var(--size-headline);
+    font-weight: 500;
+    letter-spacing: var(--tracking-headline);
+    line-height: 1.1;
+    color: var(--color-text-primary);
+    margin-bottom: 2rem;
+
+    /* Animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp var(--duration-fade) var(--easing-smooth) forwards;
+}
+
+/* ---------- DOP NAME ---------- */
+.name {
+    font-family: var(--font-body);
+    font-size: var(--size-name);
+    font-weight: 400;
+    letter-spacing: var(--tracking-name);
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+
+    /* Animation - delayed */
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp var(--duration-fade) var(--easing-smooth) forwards;
+    animation-delay: var(--duration-stagger);
+}
+
+/* ---------- SUBTITLE ---------- */
+.subtitle {
+    font-family: var(--font-body);
+    font-size: var(--size-subtitle);
+    font-weight: 300;
+    letter-spacing: var(--tracking-subtitle);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+
+    /* Animation - more delayed */
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp var(--duration-fade) var(--easing-smooth) forwards;
+    animation-delay: calc(var(--duration-stagger) * 2);
+}
+
+
+/* ---------- FOOTER INDICATOR ---------- */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    padding-bottom: calc(1.5rem + var(--space-safe-area));
+
+    /* Animation */
+    opacity: 0;
+    animation: fadeIn 2s var(--easing-smooth) forwards;
+    animation-delay: 1.5s;
+}
+
+.footer-line {
+    width: 40px;
+    height: 1px;
+    background: var(--color-text-muted);
+}
+
+
+/* =====================================================
+   5. ANIMATIONS
+   ===================================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   6. RESPONSIVE BREAKPOINTS
+   ===================================================== */
+
+/* ---------- MOBILE OPTIMIZATION ---------- */
+@media (max-width: 768px) {
+
+    /* Hide video on mobile for better performance */
+    /* Show video on mobile */
+    .bg-video {
+        display: block;
+    }
+
+    /* Ensure image background is visible on mobile */
+    .bg-image {
+        display: block;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+
+    .headline {
+        margin-bottom: 1.5rem;
+    }
+
+    .name {
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* ---------- TABLET ---------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .content {
+        padding: 3rem;
+    }
+}
+
+/* ---------- DESKTOP & ULTRAWIDE ---------- */
+@media (min-width: 1025px) {
+
+    /* Show video on desktop */
+    .bg-video {
+        display: block;
+    }
+
+    /* Optional: hide image when video is playing */
+    /* Uncomment if using video background */
+    /*
+  .bg-video + .bg-image {
+    display: none;
+  }
+  */
+
+    .content {
+        padding: 4rem;
+    }
+
+    .headline {
+        margin-bottom: 2.5rem;
+    }
+}
+
+/* ---------- HIGH DPI / RETINA ---------- */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    /* Use higher resolution background for retina displays if available */
+    /* .bg-image {
+    background-image: url('assets/background@2x.jpg');
+  } */
+}
+
+/* ---------- REDUCED MOTION PREFERENCE ---------- */
+@media (prefers-reduced-motion: reduce) {
+
+    .headline,
+    .name,
+    .subtitle,
+    .footer {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ---------- DARK MODE (already dark, but ensure consistency) ---------- */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}

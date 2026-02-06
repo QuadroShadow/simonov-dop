@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Simonov DOP - Director of Photography. Coming Soon.">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <title>Simonov DOP | Coming Soon</title>
+
+    <!-- 
+    =====================================================
+    FONTS
+    Using Inter (clean, modern sans-serif) and Playfair Display (cinematic serif)
+    Change fonts here if you prefer different typography
+    =====================================================
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- 
+    =====================================================
+    BACKGROUND MEDIA CONTAINER
+    Supports both VIDEO and IMAGE backgrounds
+    
+    TO USE VIDEO BACKGROUND:
+    - Uncomment the <video> element below
+    - Set src to your video file (MP4 recommended)
+    - The video will autoplay, loop, and be muted
+    
+    TO USE IMAGE BACKGROUND:
+    - Comment out the <video> element
+    - Uncomment the <div class="bg-image"> element
+    - Set the background-image URL in styles.css (.bg-image class)
+    
+    MOBILE OPTIMIZATION:
+    - Video is hidden on mobile by default (CSS media query)
+    - Image fallback is shown instead for better performance
+    =====================================================
+  -->
+    <div class="background-container">
+
+        <!-- OPTION 1: VIDEO BACKGROUND (uncomment to use) -->
+        <video autoplay loop muted playsinline webkit-playsinline poster="assets/poster.jpg" class="bg-video">
+            <source src="assets/showreel.mp4" type="video/mp4">
+        </video>
+
+        <!-- OPTION 2: IMAGE BACKGROUND (currently active) -->
+        <!-- To change the image, edit the background-image URL in styles.css (.bg-image class) -->
+        <div class="bg-image"></div>
+
+        <!-- Dark overlay for text readability (adjust opacity in styles.css) -->
+        <div class="bg-overlay"></div>
+    </div>
+
+    <!-- 
+    =====================================================
+    MAIN CONTENT
+    Edit text content here:
+    - h1: Main headline ("Coming Soon")
+    - .name: DOP name ("Simonov DOP")
+    - .subtitle: Role description ("Director of Photography")
+    =====================================================
+  -->
+    <main class="content">
+        <div class="content-wrapper">
+
+            <!-- Main Headline -->
+            <h1 class="headline">Coming Soon</h1>
+
+            <!-- DOP Name -->
+            <p class="name">Simonov DOP</p>
+
+            <!-- Subtitle / Role (optional - can be removed) -->
+            <p class="subtitle">Director of Photography</p>
+
+        </div>
+    </main>
+
+    <!-- Optional: Subtle bottom indicator -->
+    <footer class="footer">
+        <span class="footer-line"></span>
+    </footer>
+
+</body>
+
+</html>
