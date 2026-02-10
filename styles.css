@@ -38,8 +38,8 @@ TABLE OF CONTENTS:
     --overlay-opacity: 0.55;
 
     /* ---------- TYPOGRAPHY ---------- */
-    /* Headline font - cinematic serif */
-    --font-headline: 'Playfair Display', Georgia, serif;
+    /* Headline font - modern sans-serif */
+    --font-headline: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
 
     /* Body font - clean sans-serif */
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
