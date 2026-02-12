@@ -28,7 +28,7 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html assets/posters sync_imdb.js styles.css
+            git add html/index.html html/assets/posters sync_imdb.js html/styles.css
             git commit -m "chore: sync IMDb cinematographer credits"
             git push
           else

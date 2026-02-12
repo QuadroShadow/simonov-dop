@@ -5,8 +5,8 @@ const http = require('http');
 
 const NAME_ID = process.argv[2] || 'nm10457842';
 const BASE_DIR = __dirname;
-const INDEX_PATH = path.join(BASE_DIR, 'index.html');
-const POSTERS_DIR = path.join(BASE_DIR, 'assets', 'posters');
+const INDEX_PATH = path.join(BASE_DIR, 'html', 'index.html');
+const POSTERS_DIR = path.join(BASE_DIR, 'html', 'assets', 'posters');
 const PRIORITY_IDS = [
   'tt29414906',
   'tt34720347',
