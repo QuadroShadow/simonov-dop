@@ -661,19 +661,6 @@ body {
 
     /* Hide video on mobile for better performance */
     /* Show video on mobile */
-    .bg-video {
-        display: block;
-    }
-
-    /* Ensure image background is visible on mobile */
-    .bg-image {
-        display: block;
-    }
-
-    .content {
-        padding: 1.5rem;
-    }
-
     .headline {
         margin-bottom: 1.5rem;
     }
