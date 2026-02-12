@@ -9,8 +9,11 @@ services:
       - coolify
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=coolify"
+      - "coolify.managed=true"
       - "traefik.http.routers.simonov.rule=Host(`simonovkonstantin.com`)"
-      - "traefik.http.routers.simonov.entrypoints=websecure"
+      - "traefik.http.routers.simonov.entrypoints=https"
+      - "traefik.http.routers.simonov.tls=true"
       - "traefik.http.routers.simonov.tls.certresolver=letsencrypt"
       - "traefik.http.services.simonov.loadbalancer.server.port=80"
 
