@@ -2,6 +2,21 @@
 
 A minimalist, cinematic landing page for Director of Photography "Simonov DOP".
 
+## IMDb Auto Sync
+
+The project includes `sync_imdb.js`, which:
+- loads IMDb credits for a name page,
+- keeps only credits under `Cinematographer` (and `Director of Photography`),
+- downloads posters to `assets/posters/`,
+- rewrites the `Selected Work` cards in `index.html`.
+
+Manual run:
+```bash
+node sync_imdb.js nm10457842
+```
+
+A GitHub Actions workflow (`.github/workflows/imdb-sync.yml`) runs this automatically every day and commits updates.
+
 ## Quick Start
 
 1. Open `index.html` in a browser, or
